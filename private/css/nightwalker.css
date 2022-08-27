@@ -346,6 +346,7 @@ div.progressbar_wrapper {
 .progressbar_light {
   background: var(--color-Dark) !important;
   color: var(--color-White) !important;
+  border-radius: 12px;
 }
 
 /* .panel-collapse {
@@ -356,6 +357,7 @@ select {
   background: var(--color-Grey);
   border-color: var(--color-Blue);
   color: var(--color-White) !important;
+  border-radius: 12px;
 }
 
 input,
