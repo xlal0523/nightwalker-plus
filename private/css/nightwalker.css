@@ -1,65 +1,56 @@
 @import url(https://use.fontawesome.com/releases/v5.0.7/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
 :root {
-  --color-Dark: #25282e;
+  --color-Dark: #2a2a2a;
   --color-LessDark: #2a2f36;
   --color-Grey: #34373f;
   --color-GreySelected: #454952;
   --color-LightGrey: #51555f;
   --color-White: #dfdfdf;
   --color-ProgressBarFG: #ffffff;
-  --color-ProgressBarBG: #2e78d8;
-  --color-DarkSelected: #2e78d8;
-
-  --color-RatioBad: #eb2a2a;
-  --color-RatioAlmost: #e78310;
-  --color-RatioGood: #36bd58;
-  --color-RatioBest: #2e78d8;
+  --color-ProgressBarBG: #1e824c;
+  --color-DarkSelected: #1e824c;
 
   --color-BadRed: #bd3636;
   --color-GoodGreen: #36bd58;
   --color-Orange: #c77920;
-  --color-Blue: #2e78d8;
+  --color-Blue: #1e824c;
 
   --button-color: #34373f;
-  --button-color-hover: #2e78d8;
+  --button-color-hover: #1e824c;
   --button-text: #eee;
-  --accent-color: #2e78d8;
-  --accent-color-hover: #2e78d8;
+  --accent-color: #1e824c;
+  --accent-color-hover: #1e824c;
   --text: #eee;
   --text-hover: #fff;
-  --link-color: #2e78d8;
+  --link-color: #1e824c;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-Dark: #25282e;
+    --color-Dark: #2a2a2a;
     --color-LessDark: #2a2f36;
     --color-Grey: #34373f;
     --color-GreySelected: #454952;
     --color-LightGrey: #51555f;
     --color-White: #dfdfdf;
     --color-ProgressBarFG: #ffffff;
-    --color-ProgressBarBG: #2e78d8;
-    --color-DarkSelected: #2e78d8;
-
-    --color-RatioBad: #eb2a2a;
-    --color-RatioAlmost: #e78310;
-    --color-RatioGood: #36bd58;
-    --color-RatioBest: #2e78d8;
+    --color-ProgressBarBG: #1e824c;
+    --color-DarkSelected: #1e824c;
 
     --color-BadRed: #bd3636;
     --color-GoodGreen: #36bd58;
     --color-Orange: #c77920;
-    --color-Blue: #2e78d8;
+    --color-Blue: #1e824c;
 
     --button-color: #34373f;
-    --button-color-hover: #2e78d8;
+    --button-color-hover: #1e824c;
     --button-text: #eee;
-    --accent-color: #2e78d8;
-    --accent-color-hover: #2e78d8;
+    --accent-color: #1e824c;
+    --accent-color-hover: #1e824c;
     --text: #eee;
     --text-hover: #fff;
-    --link-color: #2e78d8;
+    --link-color: #1e824c;
   }
 }
 
@@ -73,6 +64,9 @@ body,
 #Filters {
   background: var(--color-Dark) !important;
   color: var(--color-White);
+  font-family: 'Open Sans';
+  font-size: 12px;
+  height: 21px;
 }
 
 a {
