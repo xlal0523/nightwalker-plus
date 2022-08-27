@@ -57,6 +57,22 @@ window.qBittorrent.DynamicTable = (function() {
     let DynamicTableHeaderContextMenuClass = null;
     let ProgressColumnWidth = -1;
 
+    const colorSub = function(a, b){
+        return [a[0] - b[0], a[1] - b[1], a[2] - b[2]];  
+    };
+
+    const colorAdd = function(a, b){
+        return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];  
+    }
+    
+    const colorMul = function (a, mul){
+        return [Math.floor(a[0] * mul), Math.floor(a[1] * mul), Math.floor(a[2] * mul)];  
+    }
+    
+    const colorRGB = function(color){
+        return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";    
+    }
+
     const DynamicTable = new Class({
 
         initialize: function() {},
@@ -1112,35 +1128,36 @@ window.qBittorrent.DynamicTable = (function() {
             this.columns['ratio'].updateTd = function(td, row) {
                 const ratio = this.getRowValue(row);
                 const string = (ratio === -1) ? '∞' : window.qBittorrent.Misc.toFixedPointString(ratio, 2);
-                switch (true) {
-                    case (ratio < 0.5):
-                        
-                        // td.setStyle('color', '#eb3434');
-                        td.set('class', 'ratioBad');
+                const levels = [0, 1, 3, 30];
+                const colors = [ 
+                    [255, 0, 0], // red
+                    [255, 255, 0], // yellow
+                    [0, 255, 0], // green
+                    [123, 17, 203] // purple
+                ];
+
+                let color = null;
+
+                for (var i = 0; i < levels.length; i++){
+                    color = null;
+                    if (ratio < levels[i] && ratio !== -1 ){
+                        let leveldiff, diffColor = null;
+                        let proc = 0;
+                        leveldiff = levels[i] - levels[i - 1];
+                        proc = (ratio - levels[i - 1]) / leveldiff;
+                        diffColor = colorSub(colors[i], colors[i - 1]);
+                        color = colorAdd(colorMul(diffColor, proc), colors[i - 1]);
                         break;
-                    case (ratio < 1.0):
-                        // console.log('ALMOST');
-                        // td.setStyle('color', '#eb9b34');
-                        td.set('class', 'ratioAlmost');
-                        break;
-                    case (ratio < 5.0):
-                        // console.log('GOOD');
-                        // td.setStyle('color', '#40b82e');
-                        td.set('class', 'ratioGood');
-                        break;
-                    case (ratio > 5.0):
-                        // console.log('BEST');
-                        // td.setStyle('color', '#40b82e');
-                        td.set('class', 'ratioBest');
-                        break;
-                    default:
-                        // console.log('none');
-                        break;
+                    }
                 }
+
+                if(color === null){
+                    color = colors[colors.length - 1];
+                }
+                td.setStyle('color', colorRGB(color));
                 td.set('text', string);
                 td.set('title', string);
             };
-
             // added on
             this.columns['added_on'].updateTd = function(td, row) {
                 const date = new Date(this.getRowValue(row) * 1000).toLocaleString();
