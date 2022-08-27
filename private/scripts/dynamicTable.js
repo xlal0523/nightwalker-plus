@@ -57,6 +57,8 @@ window.qBittorrent.DynamicTable = (function() {
     let DynamicTableHeaderContextMenuClass = null;
     let ProgressColumnWidth = -1;
 
+    // Ratiocolour helper functions
+    
     const colorSub = function(a, b){
         return [a[0] - b[0], a[1] - b[1], a[2] - b[2]];  
     };
