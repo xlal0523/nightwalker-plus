@@ -331,15 +331,16 @@ h3 {
   padding: 1px 1px 2px 1px;
 }
 
-/*progressbar border*/
 div.progressbar_wrapper {
-  border-color: var(--color-GreySelected) !important;
+  border-color: 1px solid transparent !important
 }
+
 
 /* % of download completed*/
 .progressbar_dark {
   background: var(--color-ProgressBarBG) !important;
   color: var(--color-ProgressBarFG) !important;
+  border-radius: 12px;
 }
 
 /* % of download uncompleted*/
