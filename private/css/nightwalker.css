@@ -2,22 +2,24 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
 :root {
+  --color-bg-Dark: #222;
   --color-Dark: #2a2a2a;
   --color-LessDark: #2a2f36;
-  --color-Grey: #34373f;
-  --color-GreySelected: #454952;
+  --color-Grey: #222;
+  --color-GreySelected: #343434;
   --color-LightGrey: #51555f;
-  --color-White: #dfdfdf;
+  --color-White: #ccc;
   --color-ProgressBarFG: #ffffff;
   --color-ProgressBarBG: #1e824c;
   --color-DarkSelected: #1e824c;
+  --modal-NotLightGrey-color: #333;
 
   --color-BadRed: #bd3636;
   --color-GoodGreen: #36bd58;
   --color-Orange: #c77920;
   --color-Blue: #1e824c;
 
-  --button-color: #34373f;
+  --button-color: #222;
   --button-color-hover: #1e824c;
   --button-text: #eee;
   --accent-color: #1e824c;
@@ -25,25 +27,27 @@
   --text: #eee;
   --text-hover: #fff;
   --link-color: #1e824c;
+  --text-selected: #009ddd;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --color-Dark: #2a2a2a;
     --color-LessDark: #2a2f36;
-    --color-Grey: #34373f;
-    --color-GreySelected: #454952;
+    --color-Grey: #222;
+    --color-GreySelected: #343434;
     --color-LightGrey: #51555f;
-    --color-White: #dfdfdf;
+    --color-White: #ccc;
     --color-ProgressBarFG: #ffffff;
     --color-ProgressBarBG: #1e824c;
     --color-DarkSelected: #1e824c;
+    --modal-NotLightGrey-color: #333;
 
     --color-BadRed: #bd3636;
     --color-GoodGreen: #36bd58;
     --color-Orange: #c77920;
     --color-Blue: #1e824c;
 
-    --button-color: #34373f;
+    --button-color: #222;
     --button-color-hover: #1e824c;
     --button-text: #eee;
     --accent-color: #1e824c;
@@ -51,6 +55,7 @@
     --text: #eee;
     --text-hover: #fff;
     --link-color: #1e824c;
+    --text-selected: #009ddd;
   }
 }
 
@@ -65,14 +70,14 @@ body,
   background: var(--color-Dark) !important;
   color: var(--color-White);
   font-family: 'Open Sans';
-  font-size: 12px;
-  height: 21px;
+  font-size: 12px !important;
 }
 
+/*
 a {
   color: var(--color-White) !important;
 }
-
+*/
 #desktopNavbar li a {
   color: var(--color-White) !important;
   border-bottom-color: var(--color-Grey) !important;
@@ -103,12 +108,12 @@ a {
 
 .torrentTable th,
 .dynamicTable th {
-  background: var(--color-Dark) !important;
+  background: var(--color-bg-Dark) !important;
   color: var(--color-White) !important;
 }
 
 .dynamicTable th {
-  border-right-color: var(--color-Grey) !important;
+  border-right-color: var(--color-bg-Dark) !important;
 }
 
 .torrentTable tr,
@@ -118,7 +123,7 @@ a {
 
 .torrentTable tr:nth-child(even),
 .dynamicTable tr:nth-child(even) {
-  background: var(--color-LessDark) !important;
+  background: var(--color-Dark) !important;
 }
 
 .torrentTable tr.selected,
@@ -131,6 +136,8 @@ a {
 .torrentTable tr.selected,
 .dynamicTable tr.selected {
   background: var(--color-GreySelected) !important;
+  text-shadow: 0 0 4px #000 !important;
+  color: var(--text-selected) !important;
 }
 
 .torrentTable tr:hover,
@@ -161,7 +168,8 @@ ul.filterList li:hover,
 }
 
 .toolbarTabs li.selected {
-  background: var(--color-DarkSelected) !important;
+  background: var(--modal-NotLightGrey-color) !important;
+  text-shadow: 0 0 9px var(--text);
 }
 
 .toolbarTabs li a {
@@ -185,7 +193,7 @@ ul.filterList li:hover,
 }
 
 #desktopFooter {
-  background: var(--color-Dark) !important;
+  background: var(--modal-NotLightGrey-color)  !important;
   border: 1px solid var(--color-Grey) !important;
   color: var(--color-White) !important;
 }
@@ -196,7 +204,7 @@ ul.filterList li:hover,
 }
 
 .panel {
-  background: var(--color-Dark) !important;
+  background: var(--color-bg-Dark) !important;
   border-bottom-color: var(--color-Grey) !important;
   color: var(--color-White) !important;
 }
@@ -209,7 +217,7 @@ ul.filterList li:hover,
 }
 
 .panel-header {
-  border-bottom-color: var(--color-Dark) !important;
+  border-bottom-color: var(--modal-NotLightGrey-color)  !important;
 }
 
 .horizontalHandle,
@@ -305,9 +313,11 @@ h3 {
   color: var(--color-White);
 }
 
+/*
 .filterList a {
   color: var(--color-White) !important;
 }
+*/
 
 /*Makes the toolbar buttons, rightclick menu and menu bar white*/
 .mochaToolButton,
@@ -322,6 +332,10 @@ h3 {
 #transferList_wrapper img,
 #desktopFooter img {
   filter: brightness(100%);
+}
+
+.filterTitle {
+  background: var(--color-bg-Dark);
 }
 
 .filterTitle img {
@@ -383,6 +397,13 @@ input::placeholder {
 
 #error_div {
   color: red;
+}
+
+/* Sidemenu */
+.selectedFilter {
+  background: var(--color-GreySelected) !important;
+  font-style: italic;
+  color: var(--text-selected) !important
 }
 
 /* SCROLLBARS
@@ -666,6 +687,8 @@ img[src="icons/network-server.svg"] {
   background-repeat: no-repeat;
   background-origin: content-box;
   object-position: -999999px 999999px;
+  filter: grayscale(100%) !important;
+  -webkit-filter: grayscale(100%) !important;
 }
 
 img[src="icons/paused.svg"] {
@@ -762,7 +785,7 @@ img[src="icons/mail-folder-inbox.svg"] {
 
 /* TOOLBAR ICONS
 ----------------------------------------------------------------------------------------------*/
-
+/*
 #downloadButton > img.mochaToolButton {
   display: none;
 }
@@ -1043,7 +1066,7 @@ img[src="icons/mail-folder-inbox.svg"] {
   margin-right: 10px;
   color: white;
 }
-
+*/
 /* BASICS
 ----------------------------------------------------------------------------------------------*/
 
@@ -1141,6 +1164,8 @@ h4,
 
 .dynamicTable th.sorted.reverse {
   background-image: url("../icons/go-down.png") !important;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
 .dynamicTable th.sorted {
@@ -1148,6 +1173,12 @@ h4,
   background-size: 9px !important;
   background-position: right !important;
   background-repeat: no-repeat !important;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+thead {
+  text-transform: uppercase
 }
 
 /* li.divider {
@@ -1211,11 +1242,6 @@ h4,
   color: var(--button-text) !important;
 }
 
-/* Sidemenu */
-.selectedFilter {
-  background-color: rgba(0, 0, 0, 0.25);
-  color: #fff;
-}
 
 ul.filterList li:hover {
   background-color: rgba(255, 255, 255, 0.08);
@@ -1577,4 +1603,11 @@ input[type="submit"i]:hover {
 #deleteRuleButton {
   float: right;
   background-image: url("../icons/list-remove.svg");
+}
+
+/* Giga Custom */
+
+.panel-collapse {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
