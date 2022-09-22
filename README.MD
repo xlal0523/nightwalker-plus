@@ -7,8 +7,11 @@
 # Features
 
 - It's dark, but not black
-- It uses the same formula as the rutorrent ratiocolor plugin to have different colors for ratio-values
 - It has a mix of Fontawesome and custom icons
+
+### Plus Features
+
+- ruTorrent's Ratiocolor functionality to have different colours for ratio-values for a more familiar colour transition for die-hard users of ruTorrent
 
 # Installation
 
